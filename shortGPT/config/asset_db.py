@@ -36,14 +36,7 @@ class AssetDatabase:
 
     local_assets = TinyMongoDocument("asset_db", "asset_collection", "local_assets", create=True)
     remote_assets = TinyMongoDocument("asset_db", "asset_collection", "remote_assets", create=True)
-    if not remote_assets._get('subscribe animation'):
-        remote_assets._save({
-            'subscribe animation':{
-                "type": AssetType.VIDEO.value,
-                "url": "https://www.youtube.com/watch?v=72WhUT0OM98",
-                "ts": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            }
-        })
+    
 
     @classmethod
     def asset_exists(cls, name: str) -> bool:
